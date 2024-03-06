@@ -10,8 +10,18 @@ import java.util.Properties;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
 
+/**
+ * The UDPServerImpl class represents an implementation of a UDP server.
+ */
 public class UDPServerImpl extends AbstractServer implements Server {
 
+    /**
+     * Constructor for UDPServerImpl.
+     * Initializes the properties file for storing key-value pairs.
+     * 
+     * @throws IOException If an I/O error occurs while initializing the properties
+     *                     file.
+     */
     public UDPServerImpl() throws IOException {
         this.properties = new Properties();
         this.properties.clear();
@@ -19,6 +29,12 @@ public class UDPServerImpl extends AbstractServer implements Server {
         this.properties.store(write, null);
     }
 
+    /**
+     * Starts the UDP server on the specified port.
+     * 
+     * @param port The port number on which the server will listen for incoming
+     *             datagrams.
+     */
     @Override
     public void startServer(int port) {
         try (DatagramSocket datagramSocket = new DatagramSocket(port)) {

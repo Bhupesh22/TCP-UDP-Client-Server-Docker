@@ -8,9 +8,18 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Properties;
 
-
+/**
+ * The TCPServerImpl class represents an implementation of a TCP server.
+ */
 public class TCPServerImpl extends AbstractServer implements Server {
 
+    /**
+     * Constructor for TCPServerImpl.
+     * Initializes the properties file for storing key-value pairs.
+     * 
+     * @throws IOException If an I/O error occurs while initializing the properties
+     *                     file.
+     */
     public TCPServerImpl() throws IOException {
         properties = new Properties();
         properties.clear();
@@ -18,6 +27,12 @@ public class TCPServerImpl extends AbstractServer implements Server {
         properties.store(write, null);
     }
 
+    /**
+     * Starts the TCP server on the specified port.
+     * 
+     * @param port The port number on which the server will listen for incoming
+     *             connections.
+     */
     @Override
     public void startServer(int port) {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
