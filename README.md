@@ -63,9 +63,9 @@ To use the UDPServer, follow these steps:
    ```
    Protocol will be either `tcp` or `udp`
 
-#Screenshots
+#Screenshots TCP
 
-## TCP Docker Compilation Prepopulate & perform operations 10 PUT, 5 GET, 5 DELETE
+## TCP Docker Compilation & Prepopulate
 
 ![TCP Prepopulate & perform operations 10 PUT, 5 GET, 5 DELETE](Screenshots/DockerCompilation/SS1.png)
 
@@ -106,3 +106,22 @@ To use the UDPServer, follow these steps:
 ## TCP DELETE-ALL SERVER
 ![TCP DELETE-ALL](Screenshots/DockerCompilation/TCP-CLIENT-DELETE-ALL.png)
 
+#Screenshots UDP
+
+## UDP Docker Compilation & Prepopulate
+
+![UDP Docker Compilation & Prepopulate](Screenshots/DockerCompilation/SS6.png)
+
+![UDP Docker Compilation & Prepopulate](Screenshots/DockerCompilation/SS6.png)
+
+## UDP PUT, GET, DELETE, GET-ALL CLIENT
+![UDP PUT, GET, DELETE, GET-ALL CLIENT](Screenshots/DockerCompilation/UDP-CLIENT-PUT-GET-DELETE-GETALL.png)
+
+## UDP PUT, GET, DELETE, GET-ALL SERVER
+![UDP PUT, GET, DELETE, GET-ALL CLIENT](Screenshots/DockerCompilation/UDP-SERVER-PUT-GET-DELETE-GETALL.png)
+
+## UDP DELETE-ALL CLIENT
+![UDP DELETE-ALL CLIENT](Screenshots/DockerCompilation/UDP-CLIENT-DELETE-ALL.png)
+
+## UDP DELETE-ALL SERVER
+![UDP DELETE-ALL SERVER](Screenshots/DockerCompilation/UDP-SERVER-PUT-GET-DELETE-GETALL.png)
