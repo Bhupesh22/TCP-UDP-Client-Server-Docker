@@ -1,0 +1,17 @@
+Assignment Overview:
+The purpose of this project is to implement a single-threaded key-value store server that supports basic operations (PUT, GET, DELETE) and can communicate with clients using both TCP and UDP protocols.
+The project aims to demonstrate understanding of socket programming, network communication, and error handling.
+The scope includes developing robust client and server applications, implementing a simple communication protocol, handling timeouts and malformed packets, and logging communication activities.
+
+Technical Impression:
+Implementing the single-threaded key-value store server and client programs provided valuable insights into network programming and protocol design.
+Developing functionality to handle TCP and UDP communication, along with error handling mechanisms such as timeouts and malformed packet detection, enhanced understanding of network resilience and reliability.
+The experience highlighted the importance of proper protocol design and error handling in distributed systems.
+When the concept of Docker was further introduced, we were introduced to the world of containerization and microservices.
+We understood how to build and run dokcer files. The concept of communication between multiple containers and the need for docker network.
+Furthermore, the need to handle malformed exceptions in this project made us learn about checksum and various checksum strategies.
+
+Use Case:
+A practical use case for this key-value store implementation could be in a distributed web application environment where multiple instances of the application servers need to share common configuration settings or session data.
+By deploying this key-value store, each instance can efficiently access and modify shared data, ensuring consistency and scalability across the application infrastructure.
+
