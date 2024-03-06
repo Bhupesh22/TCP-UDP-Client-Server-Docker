@@ -14,32 +14,53 @@ import java.net.UnknownHostException;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class TCPClientImpl extends AbstractClient{
+/**
+ * The TCPClientImpl class represents a TCP client implementation for
+ * interacting with a server.
+ * It extends the AbstractClient class to inherit common functionality and
+ * utilities.
+ */
+public class TCPClientImpl extends AbstractClient {
 
-
+    /**
+     * Constructs a TCP client with the specified server IP address and port number.
+     * 
+     * @param serverIP The IP address of the server.
+     * @param port     The port number for communication with the server.
+     */
     public TCPClientImpl(InetAddress serverIP, int port) {
         this.serverIP = serverIP;
         this.port = port;
     }
 
+    /**
+     * Starts the TCP client, establishes a connection with the server, and
+     * interacts with it.
+     */
     public void startClient() {
+        // Connect to the server
         scanner = new Scanner(System.in);
         try (Socket s = new Socket()) {
-            
+
+            // Initialize input and output streams
             s.connect(new InetSocketAddress(serverIP, port), 10000);
-            
+
             DataInputStream dataInputStream = new DataInputStream(s.getInputStream());
             DataOutputStream dataOutputStream = new DataOutputStream(s.getOutputStream());
             bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
+            // Log client startup
             System.out.println(getTimeStamp() + " Client started on port: " + s.getPort());
 
+            // Prepopulate TCP requests
             prepopulateTCPRequests(dataOutputStream, dataInputStream);
 
+            // Handle user input and interact with the server
             while (true) {
-                
+
                 System.out.println("---------------------------------------");
-                System.out.print("Please choose your operations: \n1. PUT\n2. GET\n3. DELETE\n4. GET-ALL\n5. DELETE-ALL\nChoose operation number: ");
+                System.out.print(
+                        "Please choose your operations: \n1. PUT\n2. GET\n3. DELETE\n4. GET-ALL\n5. DELETE-ALL\nChoose operation number: ");
 
                 String operation = bufferedReader.readLine().trim();
                 if (Objects.equals(operation, "1")) {
@@ -120,7 +141,6 @@ public class TCPClientImpl extends AbstractClient{
         value = scanner.nextLine();
     }
 
-    
     private static void sendPacket(DataOutputStream outputStream, String packet) throws IOException {
         outputStream.writeUTF(packet);
         outputStream.flush();

@@ -12,30 +12,51 @@ import java.util.Scanner;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
 
-public class UDPClientImpl extends AbstractClient{
+/**
+ * The UDPClientImpl class represents a UDP client implementation for
+ * interacting with a server.
+ * It extends the AbstractClient class to inherit common functionality and
+ * utilities.
+ */
+public class UDPClientImpl extends AbstractClient {
 
+    /**
+     * Constructs a UDP client with the specified server IP address and port number.
+     * 
+     * @param serverIP The IP address of the server.
+     * @param port     The port number for communication with the server.
+     */
     public UDPClientImpl(InetAddress serverIP, int port) {
         this.serverIP = serverIP;
         this.port = port;
     }
 
+    /**
+     * Starts the UDP client, establishes a connection with the server, and
+     * interacts with it.
+     * 
+     * @throws IOException If an I/O error occurs.
+     */
     public void startClient() throws IOException {
         scanner = new Scanner(System.in);
 
         try (DatagramSocket datagramSocket = new DatagramSocket()) {
-            
+            // Set socket timeout
             datagramSocket.setSoTimeout(10000);
             System.out.println(getTimeStamp() + " Client started");
 
+            // Prepopulate UDP requests
             prepopulateRequests(serverIP, port);
 
+            // Handle user input and interact with the server
             while (true) {
-                
+
                 System.out.println("---------------------------------------");
-                System.out.print("Please choose your operations: \n1. PUT\n2. GET\n3. DELETE\n4. GET-ALL\n5. DELETE-ALL\nChoose operation number: ");
+                System.out.print(
+                        "Please choose your operations: \n1. PUT\n2. GET\n3. DELETE\n4. GET-ALL\n5. DELETE-ALL\nChoose operation number: ");
 
                 String operation = scanner.nextLine().trim();
-                
+
                 if (Objects.equals(operation, "1")) {
                     getKey();
                     getValue();
@@ -55,6 +76,7 @@ public class UDPClientImpl extends AbstractClient{
                     continue;
                 }
 
+                // Log the request and send it to the server
                 requestLog(request);
                 sendRequest(datagramSocket, serverIP, port, request);
             }
