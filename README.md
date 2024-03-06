@@ -65,31 +65,44 @@ To use the UDPServer, follow these steps:
 
 #Screenshots
 
-## TCP Prepopulate & perform operations 10 PUT, 5 GET, 5 DELETE
+## TCP Docker Compilation Prepopulate & perform operations 10 PUT, 5 GET, 5 DELETE
 
 ![TCP Prepopulate & perform operations 10 PUT, 5 GET, 5 DELETE](Screenshots/DockerCompilation/SS1.png)
+
 ![TCP Prepopulate & perform operations 10 PUT, 5 GET, 5 DELETE](Screenshots/DockerCompilation/SS2.png)
+
 ![TCP Prepopulate & perform operations 10 PUT, 5 GET, 5 DELETE](Screenshots/DockerCompilation/SS3.png)
+
 ![TCP Prepopulate & perform operations 10 PUT, 5 GET, 5 DELETE](Screenshots/DockerCompilation/SS4.png)
 
-## TCP PUT
+## TCP PUT CLIENT
 ![TCP PUT](Screenshots/DockerCompilation/TCP-CLIENT-PUT.png)
+
+## TCP PUT SERVER
 ![TCP PUT](Screenshots/DockerCompilation/TCP-SERVER-PUT.png)
 
 
-## TCP GET
+## TCP GET CLIENT
 ![TCP GET](Screenshots/DockerCompilation/TCP-CLIENT-PUT.png)
+
+## TCP GET SERVER
 ![TCP GET](Screenshots/DockerCompilation/TCP-SERVER-PUT.png)
 
-## TCP DELETE
+## TCP DELETE CLIENT
 ![TCP DELETE](Screenshots/DockerCompilation/TCP-CLIENT-DELETE.png)
+
+## TCP DELETE SERVER
 ![TCP DELETE](Screenshots/DockerCompilation/TCP-SERVER-DELETE.png)
 
-## TCP GET-ALL
+## TCP GET-ALL CLIENT
 ![TCP GET-ALL](Screenshots/DockerCompilation/TCP-CLIENT-GET-ALL.png)
+
+## TCP GET-ALL SERVER
 ![TCP GET-ALL](Screenshots/DockerCompilation/TCP-SERVER-GET-ALL.png)
 
-## TCP DELETE-ALL
+## TCP DELETE-ALL CLIENT
 ![TCP DELETE-ALL](Screenshots/DockerCompilation/TCP-SERVER-DELETE-ALL.png)
+
+## TCP DELETE-ALL SERVER
 ![TCP DELETE-ALL](Screenshots/DockerCompilation/TCP-CLIENT-DELETE-ALL.png)
 
