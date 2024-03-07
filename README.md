@@ -124,4 +124,4 @@ To use the UDPServer, follow these steps:
 ![UDP DELETE-ALL CLIENT](Screenshots/DockerCompilation/UDP-CLIENT-DELETE-ALL.png)
 
 ## UDP DELETE-ALL SERVER
-![UDP DELETE-ALL SERVER](Screenshots/DockerCompilation/UDP-SERVER-PUT-GET-DELETE-GETALL.png)
+![UDP DELETE-ALL SERVER](Screenshots/DockerCompilation/UDP-SERVER-DELETE-ALL.png)
