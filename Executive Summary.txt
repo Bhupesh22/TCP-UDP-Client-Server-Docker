@@ -1,3 +1,5 @@
+Project 1
+---------------------
 Assignment Overview:
 The aim of this project is to develop a server for a key-value store that operates on a single thread and supports basic operations like PUT, GET, and DELETE. 
 It should be capable of communicating with clients using both TCP and UDP protocols. This project will showcase proficiency in socket programming, 
@@ -18,4 +20,54 @@ A practical application scenario for this key-value store implementation could b
 application environment where multiple instances of application servers require access to shared configuration 
 settings or session data. Deploying this key-value store enables each instance to efficiently access and modify shared data, 
 ensuring consistency and scalability across the application infrastructure.
+
+
+Project 2
+----------------------
+
+Assignment Overview
+
+The objective of this assignment is to enhance the functionality of our previous project by implementing Remote Procedure Calls (RPC) using Java RMI for client-server communication and making 
+the server multi-threaded to handle concurrent client requests. By incorporating RPC, we aim to streamline communication between client and server, thus improving 
+the efficiency and reliability of the system. Additionally, introducing multi-threading ensures that our server can handle multiple client requests simultaneously, 
+enhancing its scalability and responsiveness. Overall, this assignment aims to demonstrate our ability to leverage advanced networking concepts to build a 
+robust and efficient distributed system.
+
+Technical Impression
+
+
+In an RMI (Remote Method Invocation) application, we develop two programs: a server program residing on the server and a client program residing on the client side.
+The server program creates a remote object and provides a reference to it for clients to access (using the registry).
+Clients request remote objects from the server and call their methods.
+
+The RMI architecture involves several components:
+Transport Layer: Handles communication between the client and server, managing existing connections and establishing new ones.
+Stub: Acts as a proxy for the remote object on the client side, facilitating communication with the server.
+Skeleton: Resides on the server side and communicates with the stub to handle client requests and invoke methods on the remote object.
+RRL (Remote Reference Layer): Manages client references to remote objects.
+
+The operation of an RMI application unfolds as follows:
+
+The client's call to the remote object is intercepted by the stub, which forwards it to the RRL.
+The client-side RRL invokes the invoke() method of the remoteRef object, forwarding the request to the server-side RRL.
+The server-side RRL forwards the request to the Skeleton (server's proxy), which executes the necessary object method on the server.
+The result is transmitted back to the client.
+Marshalling and unmarshalling are processes where method parameters are bundled into messages before being sent over the network and unpacked upon receipt, respectively.
+The RMI registry serves as a namespace for all server objects. Servers register objects with the registry, and clients retrieve objects from it using unique bind names.
+The main objectives of RMI are to simplify application development, maintain type safety, enable distributed garbage collection, and minimize the distinction between working with local and remote objects.
+
+
+Why map.properties is thread safe and does not require any external synchronization ?
+
+
+The Properties class in Java is thread-safe, meaning that multiple threads can share a single Properties object without needing external synchronization. This thread safety is achieved through several mechanisms:
+
+Inheritance from Hashtable: The Properties class extends Hashtable, which provides synchronized access to its methods like put, get, and remove. Inheriting these synchronized methods ensures that individual operations on the Properties object are thread-safe.
+Atomicity of operations: Each operation on the Properties object, such as setting or getting a property, is atomic. This means that these operations are indivisible and are either fully completed or not executed at all. Atomic operations prevent interference from other threads, ensuring consistency and thread safety.
+Internal synchronization: Internally, the Properties class employs synchronization mechanisms to handle concurrent access to its data structures. This ensures that operations performed by different threads on the same Properties object do not interfere with each other, maintaining thread safety.
+Immutable properties: Once loaded or set, the properties in a Properties object are typically immutable. This immutability prevents concurrent modification issues, as threads can read the properties without worrying about them changing unexpectedly.
+
+Overall, the combination of inheritance from Hashtable, atomicity of operations, internal synchronization, and immutable properties ensures that the Properties class is thread-safe, allowing multiple threads to safely access and manipulate properties without external synchronization.
+
+
 

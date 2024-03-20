@@ -1,3 +1,39 @@
+# Java RMI
+
+In this we are required to start rmiregistry, server and client. You will need to complie all the code by going into src folder and writing
+```
+javac Server/*.java
+javac Client/*.java
+```
+
+1. Start RMI registry
+   ```
+   start rmiregistry
+   ```
+2. Start Server
+   ```
+   java Server/StartRPCServer
+   ```
+
+3. Start Client
+   ```
+   java Client/StartClient rpc
+   ```
+
+## RPC Screenshots
+
+![RPC Prepopulate & perform operations 10 PUT, 5 GET, 5 DELETE](Screenshots/RPC-PRE-1.png)
+
+![RPC Prepopulate & perform operations 10 PUT, 5 GET, 5 DELETE](Screenshots/RPC-PRE-2.png)
+
+![RPC Prepopulate & perform operations 10 PUT, 5 GET, 5 DELETE](Screenshots/RPC-SERVER.png)
+
+![RPC Operation](Screenshots/RPC-CLIENT-1.png)
+
+![RPC Operation](Screenshots/RPC-CLIENT-2.png)
+
+
+
 # TCP/UDP Server and Client
 
 The TCP Server and Client are two Java programs that enable communication between a server and a client using the TCP/IP protocol. The TCP Server listens for client connections on a specified port, while the TCP Client connects to the server's IP address and port. The server and client exchange data through TCP sockets, allowing for reliable and ordered transmission of messages.

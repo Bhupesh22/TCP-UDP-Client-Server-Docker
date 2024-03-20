@@ -71,19 +71,29 @@ public abstract class AbstractServer {
             String value = getValue(input);
             switch (operation) {
                 case "PUT": {
-                    return performPut(key, value);
+                    String result = performPut(key, value);
+                    responseLog(result);
+                    return result;
                 }
                 case "DELETE": {
-                    return performDelete(key);
+                    String result = performDelete(key);
+                    responseLog(result);
+                    return result;
                 }
                 case "GET": {
-                    return performGet(key);
+                    String result = performGet(key);
+                    responseLog(result);
+                    return result;
                 }
                 case "GET-ALL": {
-                    return performGetAll();
+                    String result = performGetAll();
+                    responseLog(result);
+                    return result;
                 }
                 case "DELETE-ALL": {
-                    return performDeleteAll();
+                    String result = performDeleteAll();
+                    responseLog(result);
+                    return result;
                 }
                 default:
                     throw new IllegalArgumentException();
