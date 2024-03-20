@@ -147,7 +147,7 @@ public abstract class AbstractServer {
      * @param key The key to search for.
      * @return A string representing the result of the operation.
      */
-    protected String performGet(String key) {
+    protected synchronized String performGet(String key) {
         String value = properties.getProperty(key);
         String result = value == null ? "No value found for key \"" + key + "\""
                 : "Key: \"" + key + "\" ,Value: \"" + value + "\"";
@@ -162,7 +162,7 @@ public abstract class AbstractServer {
      * @return A string representing the result of the operation.
      * @throws IOException If an I/O error occurs.
      */
-    protected String performPut(String key, String value) throws IOException {
+    protected synchronized String performPut(String key, String value) throws IOException {
         properties.setProperty(key, value);
         properties.store(this.write, null);
         String result = "Inserted key \"" + key + "\" with value \"" + value + "\"";
@@ -177,7 +177,7 @@ public abstract class AbstractServer {
      * @return A string representing the result of the operation.
      * @throws IOException If an I/O error occurs.
      */
-    protected String performDelete(String key) throws IOException {
+    protected synchronized String performDelete(String key) throws IOException {
         String result = "";
         if (properties.containsKey(key)) {
             properties.remove(key);
@@ -195,7 +195,7 @@ public abstract class AbstractServer {
      * @return A string representing the result of the operation.
      * @throws IOException If an I/O error occurs.
      */
-    protected String performDeleteAll() throws IOException {
+    protected synchronized String performDeleteAll() throws IOException {
         Set<Object> keys = properties.keySet();
         for (Object x : keys) {
             performDelete((String) x);
@@ -209,7 +209,7 @@ public abstract class AbstractServer {
      * 
      * @return A string representing all key-value pairs.
      */
-    protected String performGetAll() {
+    protected synchronized String performGetAll() {
         Set<Object> keys = properties.keySet();
         if (keys.size() == 0) {
             return "Key-Value Store is empty";
