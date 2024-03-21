@@ -17,8 +17,24 @@ public class RPCClientImpl extends AbstractClient {
     }
 
     public void startClient() throws IOException {
-        prepopulateRPC();
-        scanner = new Scanner(System.in);
+        //prepopulateRPC();
+        boolean validInput = false;
+
+        while (!validInput) {
+            scanner = new Scanner(System.in);
+            System.out.println("Do you want to prepopulate? (Y or N)");
+            String in = scanner.nextLine().toLowerCase();
+            
+            if (in.equals("y")) {
+                prepopulateRPC();
+                validInput = true;
+            } else if (in.equals("n")) {
+                System.out.println("No prepopulation of data");
+                validInput = true;
+            } else {
+                System.out.println("Invalid input. Please enter 'Y' or 'N'.");
+            }
+        }
         while (true) {
             System.out.println("---------------------------------------");
             System.out.print(
